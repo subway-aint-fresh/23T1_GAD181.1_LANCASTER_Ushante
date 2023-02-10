@@ -13,6 +13,7 @@ namespace Toolkit.ObjectFound
         //method that deactivates icon on click
         public void IconDeactivation()
         {
+            Debug.Log("clicked");
             icon.SetActive(false);
             Destroy(gameObject);
         }
