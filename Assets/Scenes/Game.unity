@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 865540502}
-  icon: {fileID: 0}
+  icon: {fileID: 1143310932}
 --- !u!4 &304412427
 Transform:
   m_ObjectHideFlags: 0
