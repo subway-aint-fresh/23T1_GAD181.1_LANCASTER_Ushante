@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
-namespace Toolkit.ObjectFound
-{
     public class DeactivateIcon : MonoBehaviour
     {
-        //variable for icon screen buttons
-        //private GameObject icon;
-
 
         //win screen image
-        public Image winScreen;
+        public GameObject winScreen;
+
+        //icon
+        public GameObject icon;
 
         //score
         private int currentPoints;
@@ -23,6 +22,7 @@ namespace Toolkit.ObjectFound
         private void Start()
         {
             pointsToWin = 6;
+            currentPoints = 0;
         }
 
         private void Update()
@@ -31,7 +31,7 @@ namespace Toolkit.ObjectFound
             {
                 //end game, show win screen
                 //stop timer
-                winScreen.enabled = true;
+                winScreen.SetActive(true);
 
             }
         }
@@ -42,11 +42,14 @@ namespace Toolkit.ObjectFound
         {
             Debug.Log("clicked");
             //icon.SetActive(false);
-            Destroy(gameObject);
+
+            //destroy the button clicked
+            Destroy (icon);
+            
             currentPoints++;
+            Debug.Log(currentPoints);
         }
 
     }
-}
 
 
