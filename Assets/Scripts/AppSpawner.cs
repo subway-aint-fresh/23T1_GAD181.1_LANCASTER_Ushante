@@ -21,7 +21,7 @@ public class AppSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //method to compare tags between desktop and pinned apps
     }
 
     //method responsible for randomizing the order in which the apps spawn
@@ -42,7 +42,7 @@ public class AppSpawner : MonoBehaviour
     }
 
     //method responsible for desktop instantiation
-    public void loadApps()
+    public void LoadApps()
     {
         
         //this is responsible for instantiating the apps
@@ -55,7 +55,7 @@ public class AppSpawner : MonoBehaviour
     }
 
     //method responsible for pinned apps instantiation
-    public void loadPinnedApps()
+    public void LoadPinnedApps()
     {
         for ( int i = 0; i < 9; i++)
         {
@@ -63,5 +63,10 @@ public class AppSpawner : MonoBehaviour
             appsPinnedArray[i].transform.SetParent(GameObject.Find("Pinned").transform, false);
 
         }
+    }
+
+    //method to compare tags between desktop and pinned apps
+    public void CompareAppsTags(){
+
     }
 }
