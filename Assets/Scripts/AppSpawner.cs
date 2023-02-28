@@ -9,19 +9,13 @@ public class AppSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-
+        randomizeApps();
+        
         //make the array randomized
-
-        for ( int i = 0; i < 44; i++)
+        for ( int i = 0; i < appsArray.Length; i++)
         {
-            for (int t = 0; t < appsArray.Length; t++ )
-            {
-                GameObject tmp = appsArray[t];
-                int r = Random.Range(t, appsArray.Length);
-                appsArray[t] = appsArray[r];
-                appsArray[r] = tmp;
-            }
-            appsArray[i] = Instantiate(appsArray[i], new Vector3 (1,1,1), Quaternion.identity) as GameObject; 
+            
+            appsArray[i] = Instantiate(appsArray[i], new Vector3 (0,0,0), Quaternion.identity) as GameObject; 
             appsArray[i].transform.SetParent(GameObject.Find("Content").transform, false);
 
         }
@@ -32,6 +26,17 @@ public class AppSpawner : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void randomizeApps()
+    {
+        for (int t = 0; t < appsArray.Length; t++ )
+        {
+            GameObject tmp = appsArray[t];
+            int r = Random.Range(t, appsArray.Length);
+            appsArray[t] = appsArray[r];
+            appsArray[r] = tmp;
+        }
     }
 
 }
