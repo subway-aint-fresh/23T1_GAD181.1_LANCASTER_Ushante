@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppSpawner : MonoBehaviour
+public class PinnedSpawner : MonoBehaviour
 {
     public GameObject[] appsArray = new GameObject[44];
 
+    public GameObject myObject;
+
     // Start is called before the first frame update
     void Start()
-    {   
-        RandomizeApps();
+    {
+        myObject.GetComponent<AppSpawner>().RandomizeApps();
         
         //this is responsible for instantiating the apps
         for ( int i = 0; i < appsArray.Length; i++)
@@ -18,26 +20,12 @@ public class AppSpawner : MonoBehaviour
             appsArray[i].transform.SetParent(GameObject.Find("Content").transform, false);
 
         }
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    //method responsible for randomizing the order in which the apps spawn
-    public void RandomizeApps()
-    {
-        for (int t = 0; t < appsArray.Length; t++ )
-        {
-            GameObject tmp = appsArray[t];
-            int r = Random.Range(t, appsArray.Length);
-            appsArray[t] = appsArray[r];
-            appsArray[r] = tmp;
-        }
     }
 
 }
