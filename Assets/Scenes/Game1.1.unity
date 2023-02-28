@@ -673,7 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50088f7f3db998843a427322c7a6bd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apps: {fileID: 0}
   appsArray:
   - {fileID: 9117341800371506306, guid: 97cd9eef4720e5840b262be2ae607396, type: 3}
   - {fileID: 3199109754781820854, guid: a895e759fef9d834ab8b8415343ff8da, type: 3}
@@ -719,7 +718,6 @@ MonoBehaviour:
   - {fileID: 3113690894802177945, guid: 0db665f81b1c5c540b526597425e5a8b, type: 3}
   - {fileID: 1333961045114920753, guid: 5d41c876b6b1e2d47884828e4ce09ff0, type: 3}
   - {fileID: 5919006039083444449, guid: b6d7da1e6fa9b054b8e6628de34d77e9, type: 3}
-  content: {fileID: 1846611445}
 --- !u!1 &1693231018
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +924,7 @@ MonoBehaviour:
   m_CellSize: {x: 70, y: 80}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
-  m_ConstraintCount: 2
+  m_ConstraintCount: 9
 --- !u!114 &1846611448
 MonoBehaviour:
   m_ObjectHideFlags: 0
