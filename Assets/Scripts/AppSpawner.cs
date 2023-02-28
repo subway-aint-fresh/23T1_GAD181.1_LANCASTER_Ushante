@@ -14,8 +14,8 @@ public class AppSpawner : MonoBehaviour
     void Start()
     {   
         RandomizeApps();
-        loadApps();
-        loadPinnedApps();
+        LoadApps();
+        LoadPinnedApps();
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class AppSpawner : MonoBehaviour
     }
 
     //method responsible for randomizing the order in which the apps spawn
-    public void RandomizeApps()
+    private void RandomizeApps()
     {
         for (int t = 0; t < appsArray.Length; t++ )
         {
@@ -42,7 +42,7 @@ public class AppSpawner : MonoBehaviour
     }
 
     //method responsible for desktop instantiation
-    public void LoadApps()
+    private void LoadApps()
     {
         
         //this is responsible for instantiating the apps
@@ -50,23 +50,27 @@ public class AppSpawner : MonoBehaviour
         {
             appsArray[i] = Instantiate(appsArray[i], new Vector3 (0,0,0), Quaternion.identity) as GameObject; 
             appsArray[i].transform.SetParent(GameObject.Find("Content").transform, false);
-
         }
     }
 
     //method responsible for pinned apps instantiation
-    public void LoadPinnedApps()
+    private void LoadPinnedApps()
     {
         for ( int i = 0; i < 9; i++)
         {
             appsPinnedArray[i] = Instantiate(appsPinnedArray[i], new Vector3 (0,0,0), Quaternion.identity) as GameObject; 
             appsPinnedArray[i].transform.SetParent(GameObject.Find("Pinned").transform, false);
-
         }
     }
 
-    //method to compare tags between desktop and pinned apps
-    public void CompareAppsTags(){
-
+    //method to compare tags between desktop and pinned apps, add to onclick of prefabs
+    public void CompareAppsTags()
+    {
+        
+        Debug.Log("hello");
+        
+        //if object with same tag exists
+        //destroy both object with tag
+        //add a point to the score
     }
 }
