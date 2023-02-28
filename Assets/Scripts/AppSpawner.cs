@@ -77,9 +77,16 @@ public class AppSpawner : MonoBehaviour
 
     private void ReadData(string appName)
     {
-        for ( int i = 0; i < 9; i++)
+        for ( int i = 0; i < appsPinnedArray.Count; i++)
         {
-            
+            if (appsPinnedArray[i].appName == appName)
+            {
+                appsPinnedArray.RemoveAt(i);
+                //destroy the object aswell
+                //score++
+            }
         }
     }
 }
+
+//observer pattern
