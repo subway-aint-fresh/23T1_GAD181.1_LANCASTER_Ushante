@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 9117341800371506310}
   - component: {fileID: 9117341800371506311}
   - component: {fileID: 9117341800371506304}
+  - component: {fileID: 5173444482784852171}
   m_Layer: 5
   m_Name: Acrobat Reader
   m_TagString: Untagged
@@ -392,6 +393,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5173444482784852171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117341800371506306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ec63072a23e064a87252251d778dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appName: Acrobat Reader
 --- !u!1 &9117341800872312571
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Events;
 
 public class AppSpawner : MonoBehaviour
 {
     //variable for desktop apps array
-    public GameObject[] appsArray = new GameObject[44];
+    public List<AppInfo> appsArray = new();
 
     //variable for pinned apps array
-    public GameObject[] appsPinnedArray = new GameObject[44];
+    public List<AppInfo> appsPinnedArray = new();
 
     // Start is called before the first frame update
     void Start()
@@ -27,15 +28,15 @@ public class AppSpawner : MonoBehaviour
     //method responsible for randomizing the order in which the apps spawn
     private void RandomizeApps()
     {
-        for (int t = 0; t < appsArray.Length; t++ )
+        for (int t = 0; t < appsArray.Count; t++ )
         {
-            GameObject tmp = appsArray[t];
-            int r = Random.Range(t, appsArray.Length);
+            AppInfo tmp = appsArray[t];
+            int r = Random.Range(t, appsArray.Count);
             appsArray[t] = appsArray[r];
             appsArray[r] = tmp;
 
-            GameObject amp = appsPinnedArray[t];
-            int s = Random.Range(t, appsPinnedArray.Length);
+            AppInfo amp = appsPinnedArray[t];
+            int s = Random.Range(t, appsPinnedArray.Count);
             appsPinnedArray[t] = appsPinnedArray[s];
             appsPinnedArray[s] = amp;
         }
@@ -46,9 +47,9 @@ public class AppSpawner : MonoBehaviour
     {
         
         //this is responsible for instantiating the apps
-        for ( int i = 0; i < appsArray.Length; i++)
+        for ( int i = 0; i < appsArray.Count; i++)
         {
-            appsArray[i] = Instantiate(appsArray[i], new Vector3 (0,0,0), Quaternion.identity) as GameObject; 
+            appsArray[i] = Instantiate(appsArray[i], new Vector3 (0,0,0), Quaternion.identity); 
             appsArray[i].transform.SetParent(GameObject.Find("Content").transform, false);
         }
     }
@@ -58,19 +59,27 @@ public class AppSpawner : MonoBehaviour
     {
         for ( int i = 0; i < 9; i++)
         {
-            appsPinnedArray[i] = Instantiate(appsPinnedArray[i], new Vector3 (0,0,0), Quaternion.identity) as GameObject; 
+            appsPinnedArray[i] = Instantiate(appsPinnedArray[i], new Vector3 (0,0,0), Quaternion.identity); 
             appsPinnedArray[i].transform.SetParent(GameObject.Find("Pinned").transform, false);
         }
     }
 
     //method to compare tags between desktop and pinned apps, add to onclick of prefabs
-    public void CompareAppsTags()
+    private void OnEnable()
     {
-        
-        Debug.Log("hello");
-        
-        //if object with same tag exists
-        //destroy both object with tag
-        //add a point to the score
+        GameEvents.onSendAppDataEvent += ReadData;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.onSendAppDataEvent -= ReadData;
+    }
+
+    private void ReadData(string appName)
+    {
+        for ( int i = 0; i < 9; i++)
+        {
+            
+        }
     }
 }
