@@ -11,7 +11,7 @@ public class AppSpawner : MonoBehaviour
     {   
         randomizeApps();
         
-        //make the array randomized
+        //this is responsible for instantiating the apps
         for ( int i = 0; i < appsArray.Length; i++)
         {
             
@@ -28,6 +28,7 @@ public class AppSpawner : MonoBehaviour
         
     }
 
+    //method responsible for randomizing the order in which the apps spawn
     public void randomizeApps()
     {
         for (int t = 0; t < appsArray.Length; t++ )
